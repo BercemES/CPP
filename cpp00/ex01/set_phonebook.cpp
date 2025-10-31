@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_phonebook.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bercem <bercem@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bekinci- <bekinci-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/22 18:23:17 by bercem            #+#    #+#             */
-/*   Updated: 2025/09/22 19:22:01 by bercem           ###   ########.fr       */
+/*   Created: 2025/10/31 13:05:33 by bekinci-          #+#    #+#             */
+/*   Updated: 2025/10/31 15:12:30 by bekinci-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,16 @@ std::string get_input(const std::string &prompt)
 
 	std::cout << prompt << ": ";
 	std::getline(std::cin, input);
-	if (std::cin.eof()) 
+	if (std::cin.eof())
 	{
 		std::cout << "\n" << GREEN "Exiting PhoneBook... 👋" RESET << std::endl;
 		exit(0);
+	}
+	if (input.find_first_of("çğıöşüÇĞİÖŞÜ") != std::string::npos)
+	{
+		std::cout << RED "⚠️   Please try again without using Turkish characters." RESET << std::endl;
+		std::cout << prompt << ": ";
+		std::getline(std::cin, input);
 	}
 	while (1)
 	{

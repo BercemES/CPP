@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bercem <bercem@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bekinci- <bekinci-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/22 17:23:00 by bercem            #+#    #+#             */
-/*   Updated: 2025/09/22 19:22:29 by bercem           ###   ########.fr       */
+/*   Created: 2025/10/31 13:05:21 by bekinci-          #+#    #+#             */
+/*   Updated: 2025/10/31 15:09:36 by bekinci-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	PhoneBook::getIndex()
 	std::string	input;
 	int			index;
 	char		remaining;
-
 	while (1)
 	{
 		std::cout << "👉 Pls, enter index to display details: ";
