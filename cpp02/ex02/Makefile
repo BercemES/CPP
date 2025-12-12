@@ -3,7 +3,7 @@ NAME		= brain
 C++			= c++
 C++_FLAGS	= -Wall -Wextra -Werror -std=c++98
 
-SRC			= main.cpp
+SRC			= main.cpp Fixed.cpp
 OBJ 		= $(SRC:.cpp=.o)
 
 RESET			= \033[0m

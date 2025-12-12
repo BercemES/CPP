@@ -6,26 +6,21 @@
 /*   By: bekinci- <bekinci-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 13:53:00 by bekinci-          #+#    #+#             */
-/*   Updated: 2025/12/12 16:08:01 by bekinci-         ###   ########.fr       */
+/*   Updated: 2025/12/12 17:55:14 by bekinci-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
- Fixed:: Fixed(): fixedPointValue(0)
-{
-	std::cout << "Default constructor called" << std::endl;
-}
+ Fixed:: Fixed(): fixedPointValue(0) {}
 
 Fixed::Fixed(const int numInt)
 {
-	std::cout << "Int constructor called" << std::endl;
 	this->fixedPointValue = numInt << fractionalBits;
 }
 
 Fixed::Fixed(const float numFloat)
 {
-	std::cout << "Float constructor called" << std::endl;
 	this->fixedPointValue = roundf(numFloat * (1 << fractionalBits));
 }
 
@@ -43,10 +38,7 @@ Fixed& Fixed::operator=(const Fixed& src)
 	return (*this);
 }
 
- Fixed::~ Fixed()
-{
-	std::cout << "Destructor called" << std::endl;
-}
+ Fixed::~ Fixed() {}
 
 int		Fixed::getRawBits( void ) const
 {
@@ -68,6 +60,7 @@ int Fixed::toInt( void ) const
 {
 	return(this->fixedPointValue >> this->fractionalBits);
 }
+
 
 std:: ostream& operator<<(std::ostream &o, Fixed const &fixed)
 {
