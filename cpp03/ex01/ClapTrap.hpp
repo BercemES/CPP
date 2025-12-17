@@ -6,12 +6,12 @@
 /*   By: bekinci- <bekinci-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 13:15:08 by bekinci-          #+#    #+#             */
-/*   Updated: 2025/12/17 13:15:10 by bekinci-         ###   ########.fr       */
+/*   Updated: 2025/12/17 13:38:14 by bekinci-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
 #include <iostream>
 
