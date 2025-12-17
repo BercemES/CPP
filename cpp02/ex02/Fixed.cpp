@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bercem <bercem@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bekinci- <bekinci-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/10 13:53:00 by bekinci-          #+#    #+#             */
-/*   Updated: 2025/12/13 01:06:15 by bercem           ###   ########.fr       */
+/*   Created: 2025/12/17 10:57:26 by bekinci-          #+#    #+#             */
+/*   Updated: 2025/12/17 11:19:43 by bekinci-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,11 +137,10 @@ Fixed& Fixed::operator--()
 Fixed Fixed::operator--(int)
 {
 	Fixed	temp = *this;
-	
+
 	--this->fixedPointValue;
 	return (temp);
 }
-
 
 Fixed& Fixed::min(Fixed &f_num, Fixed &s_num)
 {

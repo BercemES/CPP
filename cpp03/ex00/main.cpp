@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bekinci- <bekinci-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/17 10:57:12 by bekinci-          #+#    #+#             */
-/*   Updated: 2025/12/17 10:57:14 by bekinci-         ###   ########.fr       */
+/*   Created: 2025/12/17 13:15:18 by bekinci-          #+#    #+#             */
+/*   Updated: 2025/12/17 13:15:20 by bekinci-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,11 @@
 
 int main( void ) {
 Fixed a;
-Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
-
-std::cout << "b = " << b << std::endl;
-std::cout << "a = " << a << std::endl;
-
-Fixed const c(Fixed(5.05f) / Fixed(0));
-std::cout << "c = " << c << std::endl;
-
-std::cout << "++a = " << ++a << std::endl;
-std::cout << "a = " << a << std::endl;
-std::cout << "a++ = " << a++ << std::endl;
-std::cout << "a = " << a << std::endl;
-std::cout << "b = " << b << std::endl;
-std::cout << "min = " << Fixed::min(a, b) << std::endl;
-std::cout << "max = " << Fixed::max( a, b ) << std::endl;
+Fixed b( a );
+Fixed c;
+c = b;
+std::cout << a.getRawBits() << std::endl;
+std::cout << b.getRawBits() << std::endl;
+std::cout << c.getRawBits() << std::endl;
 return 0;
 }
