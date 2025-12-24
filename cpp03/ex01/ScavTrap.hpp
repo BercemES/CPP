@@ -3,31 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bekinci- <bekinci-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bercem <bercem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 13:17:25 by bekinci-          #+#    #+#             */
-/*   Updated: 2025/12/17 13:38:32 by bekinci-         ###   ########.fr       */
+/*   Updated: 2025/12/24 17:29:04 by bercem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SCAVTRAP_HPP
 # define SCAVTRAP_HPP
 
-#include <iostream>
+#include "ClapTrap.hpp"
 
-class  Fixed
+class ScavTrap: public ClapTrap
 {
 private:
-	int	 fixedPointValue;
-	 static const int fractionalBits = 8;
-public:
-	Fixed();
-	Fixed(const Fixed& src);
-	Fixed& operator=(const Fixed& src);
-	~ Fixed();
 
-	int		getRawBits( void ) const;
-	void	setRawBits( int const raw );
+public:
+	ScavTrap();
+	ScavTrap(const std:: string& name);
+	ScavTrap(const ScavTrap& src);
+	~ScavTrap();
+	ScavTrap& operator=(const ScavTrap& src);
+
+	void	attack(const std::string& target);
+	void	guardGate();
+	
 };
 
 #endif

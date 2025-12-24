@@ -6,7 +6,7 @@
 /*   By: bercem <bercem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 13:17:25 by bekinci-          #+#    #+#             */
-/*   Updated: 2025/12/24 18:28:56 by bercem           ###   ########.fr       */
+/*   Updated: 2025/12/25 01:01:04 by bercem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap: public ClapTrap
+class ScavTrap: virtual public ClapTrap
 {
 private:
 

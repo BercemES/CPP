@@ -3,31 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bekinci- <bekinci-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bercem <bercem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 13:21:22 by bekinci-          #+#    #+#             */
-/*   Updated: 2025/12/17 13:39:18 by bekinci-         ###   ########.fr       */
+/*   Updated: 2025/12/24 18:39:57 by bercem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRAGTRAP_HPP
 # define FRAGTRAP_HPP
 
-#include <iostream>
+#include "ClapTrap.hpp"
 
-class  Fixed
+
+class FragTrap: public ClapTrap
 {
-private:
-	int	 fixedPointValue;
-	 static const int fractionalBits = 8;
-public:
-	Fixed();
-	Fixed(const Fixed& src);
-	Fixed& operator=(const Fixed& src);
-	~ Fixed();
+	private:
 
-	int		getRawBits( void ) const;
-	void	setRawBits( int const raw );
+	public:
+		FragTrap();
+		FragTrap(const std:: string& name);
+		FragTrap(const FragTrap& src);
+		~FragTrap();
+		FragTrap& operator=(const FragTrap& src);
+		
+		void highFivesGuys(void);
 };
 
 #endif
