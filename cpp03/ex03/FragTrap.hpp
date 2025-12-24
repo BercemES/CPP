@@ -6,7 +6,7 @@
 /*   By: bercem <bercem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 13:21:22 by bekinci-          #+#    #+#             */
-/*   Updated: 2025/12/25 01:00:58 by bercem           ###   ########.fr       */
+/*   Updated: 2025/12/25 02:05:48 by bercem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define FRAGTRAP_HPP
 
 #include "ClapTrap.hpp"
-
 
 class FragTrap: virtual public ClapTrap
 {

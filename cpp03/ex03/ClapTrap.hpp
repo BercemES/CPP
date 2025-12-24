@@ -6,7 +6,7 @@
 /*   By: bercem <bercem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 13:15:08 by bekinci-          #+#    #+#             */
-/*   Updated: 2025/12/24 18:28:03 by bercem           ###   ########.fr       */
+/*   Updated: 2025/12/25 02:07:01 by bercem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ public:
 	ClapTrap();
 	ClapTrap(const std:: string& name);
 	ClapTrap(const ClapTrap& src);
-	~ClapTrap();
+	virtual ~ClapTrap();
 	ClapTrap& operator=(const ClapTrap& src);
 
 	void attack(const std::string& target);
