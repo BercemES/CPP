@@ -1,4 +1,4 @@
-NAME		= DiamonTrap
+NAME		= DiamondTrap
 
 C++			= c++
 C++_FLAGS	= -Wall -Wextra -Werror -std=c++98
