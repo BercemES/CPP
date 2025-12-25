@@ -6,7 +6,7 @@
 /*   By: bercem <bercem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 13:15:08 by bekinci-          #+#    #+#             */
-/*   Updated: 2025/12/26 01:56:03 by bercem           ###   ########.fr       */
+/*   Updated: 2025/12/26 01:16:35 by bercem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # define YELLOW "\033[33m"
 # define BLUE	"\033[34m"
 # define GREEN	"\033[32m"
-
 class Animal
 {
 protected:
