@@ -6,12 +6,11 @@
 /*   By: bercem <bercem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 13:28:00 by bekinci-          #+#    #+#             */
-/*   Updated: 2025/12/26 01:47:32 by bercem           ###   ########.fr       */
+/*   Updated: 2026/01/13 02:46:55 by bercem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Brain.hpp"
-
 
 Brain::Brain(void)
 {
@@ -37,5 +36,13 @@ Brain& Brain::operator=(const Brain& src)
             this->_ideas[i] = src._ideas[i];
     }
     return *this;
+}
+
+void	Brain::setIdea(int i, const std::string &idea) {
+	_ideas[i] = idea;
+}
+
+std::string	Brain::getIdea(int i) const {
+	return (this->_ideas[i]);
 }
 

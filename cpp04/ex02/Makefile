@@ -3,7 +3,7 @@ NAME		= Polymorphism
 C++			= c++
 C++_FLAGS	= -Wall -Wextra -Werror -std=c++98
 
-SRC			= main.cpp Animal.cpp Dog.cpp Cat.cpp Wrong.cpp
+SRC			= main.cpp Animal.cpp Dog.cpp Cat.cpp Wrong.cpp Brain.cpp
 OBJ 		= $(SRC:.cpp=.o)
 
 RESET			= \033[0m

@@ -6,7 +6,7 @@
 /*   By: bercem <bercem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 13:28:00 by bekinci-          #+#    #+#             */
-/*   Updated: 2025/12/26 02:29:07 by bercem           ###   ########.fr       */
+/*   Updated: 2026/01/13 02:51:00 by bercem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,12 @@ Cat& Cat::operator=(const Cat& src) {
 
 void Cat::makeSound(void) const {
     std::cout << "Miyavvvv! 🐱" << std::endl;
+}
+
+void	Cat::setIdea(int i, const std::string &idea){
+	_brain->setIdea(i, idea);
+}
+
+std::string	Cat::getIdea(int i) const {
+	return(_brain->getIdea(i));
 }
