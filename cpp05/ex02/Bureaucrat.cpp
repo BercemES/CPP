@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 // Default Constructor
 Bureaucrat::Bureaucrat() {
@@ -68,4 +69,18 @@ const char *Bureaucrat::GradeTooHighException::what() const throw()
 const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return ("Min grade should be 1!");
+}
+
+void Bureaucrat::signForm(Form& form)
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << this->_name << " signed " << form.getName() << std::endl;
+	}
+	catch (std::exception& e)
+	{
+		std::cout << this->_name << " couldn’t sign " << form.getName()
+				<< " because " << e.what() << std::endl;
+	}
 }
