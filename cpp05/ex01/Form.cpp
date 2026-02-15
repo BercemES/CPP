@@ -2,13 +2,19 @@
 #include "Bureaucrat.hpp"
 
 Form::Form(): 
-	_name("default"), _signed(false), _gradeToSign(), _gradeToExe() {
+	_name("default"), _signed(false), _gradeToSign(150), _gradeToExe(150) {
 	std::cout << "Form default constructor called" << std::endl;
 }
 
 Form::Form(const std::string name, int gradeToSign, int gradeToExe): 
-	_name(name), _signed(false), _gradeToSign(gradeToSign), _gradeToExe(gradeToExe) {
-	std::cout << "Form Constructor called with " << _name << std::endl;
+	_name(name), _signed(false), _gradeToSign(gradeToSign), _gradeToExe(gradeToExe)
+{
+	if (_gradeToSign < 1 || _gradeToExe < 1)
+		throw GradeTooHighException();
+	if (_gradeToSign > 150 || _gradeToExe > 150)
+		throw GradeTooLowException();
+
+	std::cout << "AForm Constructor called with " << _name << std::endl;
 }
 
 Form::Form(const Form &other): _name(other._name), _signed(other._signed),
@@ -18,9 +24,8 @@ Form::Form(const Form &other): _name(other._name), _signed(other._signed),
 
 Form& Form::operator=(const Form& other) {
 	std::cout << "Form copy assignment operator called" << std::endl;
-	if (this != &other) {
+	if (this != &other)
 		this->_signed = other._signed;
-	}
 	return *this;
 }
 

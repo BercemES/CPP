@@ -5,7 +5,7 @@ CXX_FLAGS	=	-Wall -Wextra -Werror -std=c++98
 
 SRC			=	main.cpp Bureaucrat.cpp AForm.cpp \
 				RobotomyRequestForm.cpp ShrubberyCreationForm.cpp \
-				PresidentialPardonForm.cpp
+				PresidentialPardonForm.cpp  Intern.cpp
 OBJ 		=	$(SRC:.cpp=.o)
 
 RESET			= \033[0m

@@ -2,7 +2,7 @@
 #include "Form.hpp"
 
 // Default Constructor
-Bureaucrat::Bureaucrat() {
+Bureaucrat::Bureaucrat(): _name("default"), _grade(150){
 	std::cout << "Bureaucrat default constructor called" << std::endl;
 }
 
@@ -63,12 +63,12 @@ std::ostream &operator<<(std::ostream & os, Bureaucrat const &other) {
 
 const char *Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("Max grade should be 150!");
+	return ("Grade is too high!");
 }
 
 const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("Min grade should be 1!");
+	return ("Grade is too low!");
 }
 
 void Bureaucrat::signForm(Form& form)

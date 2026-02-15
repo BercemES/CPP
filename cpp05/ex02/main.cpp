@@ -1,87 +1,95 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
-int main() {
-	std::cout << BLUE "TEST 1: INVALID" RESET << std::endl;
-	try { Bureaucrat  invalid1("invalid1", 170); }
-	catch (std::exception& e)
-		{std::cout << RED "Exception caught: " << e.what() << RESET << std::endl;}
-	try { Bureaucrat  invalid2("invalid2", 0); }
-	catch (std::exception& e)
-		{std::cout << RED "Exception caught: " << e.what() << RESET << std::endl;}
-	
-	std::cout << std::endl;
-	std::cout << YELLOW << std::string(50, '*')<< RESET <<std::endl;
-	std::cout << std::endl;
-	std::cout << BLUE "TEST 2: FORM1" RESET << std::endl;
-	try
-    {
-        Bureaucrat  boss("Boss", 1);
-        Bureaucrat  specialist("Specialist", 50);
-        Bureaucrat  officer("Officer", 100);
+int main(void)
+{
+    srand(time(NULL));
 
-        Form    form1("Form1", 50, 5);
-		
-        std::cout << boss;
-        std::cout << specialist;
-        std::cout << officer;
-		std::cout << std::endl;
-        std::cout << form1;
-		std::cout << std::endl;
+    std::cout << YELLOW << "===== ABSTRACT TEST =====" << RESET << std::endl;
+    std::cout << BLUE << "(Uncomment: must NOT compile)" << RESET << std::endl;
+    /*
+    AForm a;
+    AForm* b = new AForm();
+    */
+   std::cout << "***" << std::endl;
 
-		officer.signForm(form1);
-		std::cout << form1;
-		std::cout << std::endl;
 
-		specialist.signForm(form1);
-		std::cout << form1;
-		std::cout << std::endl;
+    Bureaucrat boss("Boss", 1);
+    Bureaucrat specialist("Specialist", 100);
+    Bureaucrat officer("Officer", 150);
 
-		boss.signForm(form1);
-		std::cout << form1;
-		std::cout << std::endl;
-    }
-    catch (std::exception& e)
-    {
-        std::cout << RED "Exception caught: " << e.what() << RESET << std::endl;
-    }
+    std::cout << std::endl;
+    std::cout << boss << specialist << officer << std::endl;
 
-	std::cout << std::endl;
-	std::cout << YELLOW << std::string(50, '*')<< RESET <<std::endl;
-	std::cout << std::endl;
-	std::cout << BLUE "TEST 3: FORM2" RESET << std::endl;
-	try
-    {
-        Bureaucrat  boss("Boss", 1);
-        Bureaucrat  specialist("Specialist", 50);
-        Bureaucrat  officer("Officer", 100);
 
-        Form    form2("Form2", 120, 45);
-		
-		std::cout << std::endl;
-        std::cout << boss;
-        std::cout << specialist;
-        std::cout << officer;
-		std::cout << std::endl;
-        std::cout << form2;
-		std::cout << std::endl;
+    std::cout << YELLOW << "===== SHRUBBERY TEST =====" << RESET << std::endl;
 
-		officer.signForm(form2);
-		std::cout << form2;
-		std::cout << std::endl;
+    ShrubberyCreationForm shrub("Shubbery");
 
-		specialist.signForm(form2);
-		std::cout << form2;
-		std::cout << std::endl;
+    std::cout << shrub << std::endl;
 
-		boss.signForm(form2);
-		std::cout << form2;
-		std::cout << std::endl;
-    }
-    catch (std::exception& e)
-    {
-        std::cout << RED "Exception caught: " << e.what() << RESET << std::endl;
-    }
+    std::cout << BLUE << "Officer tries sign & execute" << RESET << std::endl;
+    officer.signForm(shrub);
+    officer.executeForm(shrub);
+    std::cout << std::endl;
 
-	return 0;
+    std::cout << BLUE << "Specialist tries sign & execute" << RESET << std::endl;
+    specialist.signForm(shrub);
+    specialist.executeForm(shrub);
+    std::cout << std::endl;
+
+    std::cout << BLUE << "Boss signs & executes" << RESET << std::endl;
+    boss.signForm(shrub);
+    boss.executeForm(shrub);
+    std::cout << std::endl;
+
+    std::cout << YELLOW << "===== ROBOTOMY TEST =====" << RESET << std::endl;
+
+    RobotomyRequestForm robot("Bender");
+
+    std::cout << robot << std::endl;
+
+    std::cout << BLUE << "Officer tries sign & execute" << RESET << std::endl;
+    officer.signForm(robot);
+    officer.executeForm(robot);
+    std::cout << std::endl;
+
+    std::cout << BLUE << "Specialist tries sign & execute" << RESET << std::endl;
+    specialist.signForm(robot);
+    specialist.executeForm(robot);
+    std::cout << std::endl;
+
+    std::cout << BLUE << "Boss signs & executes (multiple times)" << RESET << std::endl;
+    boss.signForm(robot);
+    boss.executeForm(robot);
+    boss.executeForm(robot);
+    boss.executeForm(robot);
+    std::cout << std::endl;
+
+    std::cout << YELLOW << "===== PRESIDENTIAL TEST =====" << RESET << std::endl;
+
+    PresidentialPardonForm pres("Marvin");
+
+    std::cout << pres << std::endl;
+
+    std::cout << BLUE << "Officer tries sign & execute" << RESET << std::endl;
+    officer.signForm(pres);
+    officer.executeForm(pres);
+    std::cout << std::endl;
+
+    std::cout << BLUE << "Specialist tries sign & execute" << RESET << std::endl;
+    specialist.signForm(pres);
+    specialist.executeForm(pres);
+    std::cout << std::endl;
+
+    std::cout << BLUE << "Boss signs & executes" << RESET << std::endl;
+    boss.executeForm(pres);
+	boss.signForm(pres);
+    boss.executeForm(pres);
+    std::cout << std::endl;
+
+    return 0;
 }

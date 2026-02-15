@@ -1,11 +1,11 @@
 #include "Bureaucrat.hpp"
 
 // Default Constructor
-Bureaucrat::Bureaucrat() {
+Bureaucrat::Bureaucrat(): _name("default"), _grade(150) {
 	std::cout << "Bureaucrat default constructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const std::string name, int grade): _name(name), _grade(grade) {
+Bureaucrat::Bureaucrat(const std::string name, int grade): _name(name) {
 	std::cout << "Bureaucrat Constructor called with " << _name << std::endl;
 	if (grade < 1)
 		throw GradeTooHighException();
@@ -16,7 +16,7 @@ Bureaucrat::Bureaucrat(const std::string name, int grade): _name(name), _grade(g
 }
 
 // Copy Constructor
-Bureaucrat::Bureaucrat(const Bureaucrat& other) {
+Bureaucrat::Bureaucrat(const Bureaucrat& other): _name(other._name) {
 	std::cout << "Bureaucrat copy constructor called" << std::endl;
 	*this = other;
 }
@@ -62,10 +62,10 @@ std::ostream &operator<<(std::ostream & os, Bureaucrat const &other) {
 
 const char *Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("Max grade should be 150!");
+	return ("Grade is too high!");
 }
 
 const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("Min grade should be 1!");
+	return ("Grade is too low!");
 }
