@@ -1,11 +1,9 @@
-NAME		=	Bureaucrat_Form_Intern
+NAME		=	real_type
 
 CXX			=	c++
 CXX_FLAGS	=	-Wall -Wextra -Werror -std=c++98
 
-SRC			=	main.cpp Bureaucrat.cpp AForm.cpp \
-				RobotomyRequestForm.cpp ShrubberyCreationForm.cpp \
-				PresidentialPardonForm.cpp  Intern.cpp
+SRC			=	main.cpp Base.cpp
 OBJ 		=	$(SRC:.cpp=.o)
 
 RESET			= \033[0m
@@ -18,7 +16,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CXX) $(CXX_FLAGS) -o $(NAME) $(OBJ)
-	@echo "$(GREEN)\n✅ cpp05-ex02 compiled successfully.$(RESET)"
+	@echo "$(GREEN)\n✅ cpp06-ex02 compiled successfully.$(RESET)"
 	rm -f $(OBJ)
 	@echo "$(RED)🧹 Object files cleaned.$(RESET)"
 
