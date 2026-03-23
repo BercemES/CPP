@@ -7,6 +7,7 @@ ScalarConverter::ScalarConverter(const ScalarConverter &other){
 }
 ScalarConverter& ScalarConverter::operator=(const ScalarConverter &other) {
 	(void)other;
+	return *this;
 }
 ScalarConverter::~ScalarConverter(){}
 
@@ -29,15 +30,30 @@ void ScalarConverter::printAll(double d)
 	{
         std::cout << static_cast<int>(d) << std::endl;
 	}
-	std::cout << "float: " << d << (d - static_cast<int>(d) == 0 ? ".0f" : "f") << std::endl;
-	std::cout << "double: " << d << (d - static_cast<int>(d) == 0 ? ".0" : "") << std::endl;
+	std::cout << "float: ";
+	if (std::isnan(d) || std::isinf(d))
+		std::cout << static_cast<float>(d) << "f" << std::endl;
+	else
+	{
+		std::cout << d << (d - static_cast<int>(d) == 0 ? ".0f" : "f") << std::endl;
+	}
+	std::cout << "double: ";
+	if (std::isnan(d) || std::isinf(d))
+		std::cout << static_cast<float>(d) << "f" << std::endl;
+	else
+	{
+		std::cout << d << (d - static_cast<int>(d) == 0 ? ".0" : "") << std::endl;
+	}
 }
 
 void ScalarConverter::convert(std::string value) {
 	if (isChar(value))
 	{
-		printAll(static_cast<double>(value[0]));
-		return ;
+		if (value.length() == 3)
+       		printAll(static_cast<double>(value[1]));
+		else
+			printAll(static_cast<double>(value[0]));
+		return;
 	}
 	else if (isInt(value))
 	{
@@ -75,7 +91,8 @@ bool ScalarConverter::isInt(const std::string& str) {
 }
 
 bool ScalarConverter::isFloat(const std::string& str) {
-	if (str == "nanf" || str == "+inff" || str == "-inff")
+	if (str == "nanf" || str == "+inff" 
+		|| str == "-inff" || str == "inff")
 		return true;
 	if (str.empty() || str[str.length() - 1] != 'f'
 		|| str == "+f" || str == "-f" || str == "f")
@@ -106,7 +123,8 @@ bool ScalarConverter::isFloat(const std::string& str) {
 }
 
 bool ScalarConverter::isDouble(const std::string& str){
-	if (str == "nan" || str == "+inf" || str == "-inf")
+	if (str == "nan" || str == "+inf" 
+		|| str == "-inf" || str == "inf")
 		return true;
 	if (str.empty() || str[str.length() - 1] == 'f'
 		|| str == "+f" || str == "-f" || str == "f")
@@ -138,10 +156,8 @@ bool ScalarConverter::isDouble(const std::string& str){
 
 bool ScalarConverter::isChar(const std::string& str) {
 	if (str.length() == 1 && !isdigit(str[0]))
-	{
-		if (isprint(str[0]) == 0)
-			return (0);
-		return (1);
-	}
+		return (isprint(str[0]));
+	if (str.length() == 3 && str[0] == '\'' && str[2] == '\'')
+        return (isprint(str[1]));
 	return (0);	 
 }
