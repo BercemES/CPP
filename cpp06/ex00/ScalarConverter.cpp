@@ -39,7 +39,7 @@ void ScalarConverter::printAll(double d)
 	}
 	std::cout << "double: ";
 	if (std::isnan(d) || std::isinf(d))
-		std::cout << static_cast<float>(d) << "f" << std::endl;
+		std::cout << static_cast<float>(d) << std::endl;
 	else
 	{
 		std::cout << d << (d - static_cast<int>(d) == 0 ? ".0" : "") << std::endl;
