@@ -1,9 +1,9 @@
-NAME		=	BitcoinExchange
+NAME		=	btc
 
 CXX			=	c++
 CXX_FLAGS	=	-Wall -Wextra -Werror -std=c++98
 
-SRC			=	main.cpp
+SRC			=	main.cpp BitcoinExchange.cpp
 OBJ 		=	$(SRC:.cpp=.o)
 
 RESET			= \033[0m
