@@ -4,7 +4,7 @@
 int main() {
 	std::cout << BLUE "TEST 1: TOO HIGH GRADE" RESET << std::endl;
 
-    try { Bureaucrat  tooHigh("tooHigh", 170); }
+    try { Bureaucrat  tooHigh("tooHigh", 0); }
 	catch (std::exception& e)
 		{std::cout << RED "Exception caught: " << e.what() << RESET << std::endl;}
 
@@ -13,7 +13,7 @@ int main() {
 	std::cout << std::endl;
 
 	std::cout << BLUE "TEST2 : TOO LOW GRADE" RESET << std::endl;
-    try { Bureaucrat  tooLow("tooLow", 0); }
+    try { Bureaucrat  tooLow("tooLow", 170); }
 	catch (std::exception& e)
 		{std::cout << RED "Exception caught: " << e.what() << RESET << std::endl;}
 
