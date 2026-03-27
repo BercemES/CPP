@@ -54,7 +54,7 @@ void		AForm::beSigned(const Bureaucrat& bureaucrat)
 	if (bureaucrat.getGrade() <= this->_gradeToSign)
 		this->_signed = true;
 	else
-		GradeTooLowException();
+		throw GradeTooLowException();
 }
 
 void AForm::execute(const Bureaucrat &executor) const
