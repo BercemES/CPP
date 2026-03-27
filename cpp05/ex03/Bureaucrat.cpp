@@ -7,13 +7,13 @@ Bureaucrat::Bureaucrat(): _name("default"), _grade(150) {
 }
 
 Bureaucrat::Bureaucrat(const std::string name, int grade): _name(name), _grade(grade) {
-	std::cout << "Bureaucrat Constructor called with " << _name << std::endl;
 	if (grade < 1)
 		throw GradeTooHighException();
 	else if (grade > 150)
 		throw GradeTooLowException();
 	else
 		_grade = grade;
+	std::cout << "Bureaucrat Constructor called with " << _name << std::endl;
 }
 
 // Copy Constructor
