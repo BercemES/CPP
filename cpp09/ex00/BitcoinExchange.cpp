@@ -7,9 +7,7 @@ BitcoinExchange::BitcoinExchange(const BitcoinExchange &other): data(other.data)
 BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange &other)
 {
 	if (this != &other)
-	{
 		this->data = other.data;
-	}
 	return (*this);
 }
 BitcoinExchange::~BitcoinExchange() {}
@@ -76,7 +74,7 @@ bool	BitcoinExchange::parseValidate(const std::string& line, char delimiter, std
 {
 	size_t		pos;
 	std::string	strRV;
-	
+
 	if (line.empty())
 	{
 		std::cerr << "Error: line is empty.\n";
