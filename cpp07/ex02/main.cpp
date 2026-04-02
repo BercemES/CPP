@@ -6,11 +6,10 @@
 /*   By: bekinci- <bekinci-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 12:06:55 by bekinci-          #+#    #+#             */
-/*   Updated: 2026/04/02 12:06:58 by bekinci-         ###   ########.fr       */
+/*   Updated: 2026/04/02 18:46:15 by bekinci-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Array.hpp"
 
 #define MAX_VAL 750
@@ -78,11 +77,19 @@ int main(int, char**)
     std::cout << "Array size: " << a.size() << std::endl;
 
     try {
-        std::cout << "Error: index ";
+		std::cout << "Error: index ";
         std::cout << a[5] << std::endl;
     } catch (const std::exception& e) {
-        std::cout << "catch: " << e.what() << std::endl;
+		std::cout << "catch: " << e.what() << std::endl;
     }
-
+	
+	std::cout << "Const;" << std::endl;
+	const Array<int> constArr(3);
+	try {
+	    std::cout << constArr[0] << std::endl;
+	} catch (const std::exception& e) {
+	    std::cout << "const catch: " << e.what() << std::endl;
+	}
+	
     return 0;
 }

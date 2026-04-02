@@ -6,7 +6,7 @@
 /*   By: bekinci- <bekinci-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 12:06:44 by bekinci-          #+#    #+#             */
-/*   Updated: 2026/04/02 12:06:45 by bekinci-         ###   ########.fr       */
+/*   Updated: 2026/04/02 18:35:45 by bekinci-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,11 @@ class Array
 		}
 
 		T &operator[](unsigned int i){
+			if (i >= n)
+				throw std::out_of_range("Index out of bounds!");
+			return elements[i];
+		}
+		T const &operator[](unsigned int i) const {
 			if (i >= n)
 				throw std::out_of_range("Index out of bounds!");
 			return elements[i];
