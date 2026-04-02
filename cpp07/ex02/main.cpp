@@ -6,7 +6,7 @@
 /*   By: bekinci- <bekinci-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 12:06:55 by bekinci-          #+#    #+#             */
-/*   Updated: 2026/04/02 18:46:15 by bekinci-         ###   ########.fr       */
+/*   Updated: 2026/04/02 18:57:21 by bekinci-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,12 @@ int main(int, char**)
 	const Array<int> constArr(3);
 	try {
 	    std::cout << constArr[0] << std::endl;
+	} catch (const std::exception& e) {
+	    std::cout << "const catch: " << e.what() << std::endl;
+	}
+
+	try {
+	    std::cout << constArr[6] << std::endl;
 	} catch (const std::exception& e) {
 	    std::cout << "const catch: " << e.what() << std::endl;
 	}
