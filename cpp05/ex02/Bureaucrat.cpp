@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bekinci- <bekinci-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/02 11:44:04 by bekinci-          #+#    #+#             */
+/*   Updated: 2026/04/02 11:44:09 by bekinci-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 
-// Default Constructor
 Bureaucrat::Bureaucrat(): _name("default"), _grade(150) {
 	std::cout << "Bureaucrat default constructor called" << std::endl;
 }
@@ -16,13 +27,11 @@ Bureaucrat::Bureaucrat(const std::string name, int grade): _name(name), _grade(g
 	std::cout << "Bureaucrat Constructor called with " << _name << std::endl;
 }
 
-// Copy Constructor
 Bureaucrat::Bureaucrat(const Bureaucrat& other) {
 	std::cout << "Bureaucrat copy constructor called" << std::endl;
 	*this = other;
 }
 
-// Copy Assignment Operator
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
 	std::cout << "Bureaucrat copy assignment operator called" << std::endl;
 	if (this != &other) {
@@ -31,7 +40,6 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
 	return *this;
 }
 
-// Destructor
 Bureaucrat::~Bureaucrat() {
 	std::cout << _name << " Bureaucrat destructor called" << std::endl;
 }

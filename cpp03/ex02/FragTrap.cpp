@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bercem <bercem@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bekinci- <bekinci-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 13:21:39 by bekinci-          #+#    #+#             */
-/*   Updated: 2025/12/24 19:06:07 by bercem           ###   ########.fr       */
+/*   Updated: 2025/12/25 14:37:39 by bekinci-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "FragTrap.hpp"
 
@@ -28,7 +27,6 @@ FragTrap::FragTrap(const std::string& name): ClapTrap(name)
 	attackDamage = 30;
 	std::cout << "FragTrap Constructor called with " << name << std::endl;
 }
-
 
 FragTrap::FragTrap(const FragTrap& src): ClapTrap(src)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bercem <bercem@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bekinci- <bekinci-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 13:53:13 by bekinci-          #+#    #+#             */
-/*   Updated: 2025/12/25 01:37:19 by bercem           ###   ########.fr       */
+/*   Updated: 2025/12/25 14:36:53 by bekinci-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,12 @@ int main( void ) {
 	
 	std::cout << YELLOW << "Test4: ScavTrap" << RESET << std::endl;
 	b.guardGate();
+	std::cout << std::endl;
+
+	std::cout << YELLOW << "Test5: Heap Memory" << RESET << std::endl;
+	DiamondTrap* e = new DiamondTrap("PointerTest");
+	e->whoAmI();
+	delete e;
 	std::cout << std::endl;
 
 	std::cout << std::endl;

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bekinci- <bekinci-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/02 12:10:14 by bekinci-          #+#    #+#             */
+/*   Updated: 2026/04/02 12:10:16 by bekinci-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "MutantStack.hpp"
 #include <list>
 
@@ -25,7 +37,6 @@ int main()
 	}
 	std::stack<int> s(mstack);
 
-
 	std::cout << std::endl;
 	std::cout << "TEST: std::list" << std::endl;
 	std::cout << std::endl;
@@ -51,5 +62,6 @@ int main()
 		++it;
 		}
 	std::list<int> s(mstack);
+	}
 	return 0;
 }

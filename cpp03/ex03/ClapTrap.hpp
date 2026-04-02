@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bercem <bercem@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bekinci- <bekinci-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 13:15:08 by bekinci-          #+#    #+#             */
-/*   Updated: 2025/12/25 02:07:01 by bercem           ###   ########.fr       */
+/*   Updated: 2025/12/25 14:37:14 by bekinci-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # define RESET	"\033[0m"
 # define RED	"\033[31m"
 # define YELLOW "\033[33m"
-
 
 class ClapTrap
 {

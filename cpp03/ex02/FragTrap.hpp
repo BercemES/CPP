@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bercem <bercem@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bekinci- <bekinci-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 13:21:22 by bekinci-          #+#    #+#             */
-/*   Updated: 2025/12/24 18:39:57 by bercem           ###   ########.fr       */
+/*   Updated: 2025/12/25 14:37:35 by bekinci-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define FRAGTRAP_HPP
 
 #include "ClapTrap.hpp"
-
 
 class FragTrap: public ClapTrap
 {
