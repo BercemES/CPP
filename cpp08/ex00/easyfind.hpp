@@ -6,12 +6,12 @@
 /*   By: bekinci- <bekinci-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 12:08:07 by bekinci-          #+#    #+#             */
-/*   Updated: 2026/04/02 12:08:09 by bekinci-         ###   ########.fr       */
+/*   Updated: 2026/04/06 11:37:23 by bekinci-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef EASYFIND_HPP
-# define AEASYFIND_HPP
+# define EASYFIND_HPP
 
 # include <iostream>
 # include <algorithm>
