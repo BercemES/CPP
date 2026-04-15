@@ -17,8 +17,6 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CXX) $(CXX_FLAGS) -o $(NAME) $(OBJ)
 	@echo "$(GREEN)\n✅ cpp09-ex00 compiled successfully.$(RESET)"
-	rm -f $(OBJ)
-	@echo "$(RED)🧹 Object files cleaned.$(RESET)"
 
 %.o: %.cpp
 	$(CXX) $(CXX_FLAGS) -c $< -o $@

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bekinci- <bekinci-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bercem <bercem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 12:10:43 by bekinci-          #+#    #+#             */
-/*   Updated: 2026/04/02 12:10:45 by bekinci-         ###   ########.fr       */
+/*   Updated: 2026/04/15 13:21:09 by bercem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int main(int ac, char **av)
 {
 	if (ac != 2)
 	{
-		std::cout << "Error: could not open file." << std::endl;
+		std::cout << "Usage: ./btc data.csv [input file]" << std::endl;
 		return (1);
 	}
 	try

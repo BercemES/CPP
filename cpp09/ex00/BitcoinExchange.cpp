@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bekinci- <bekinci-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bercem <bercem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 12:10:29 by bekinci-          #+#    #+#             */
-/*   Updated: 2026/04/02 12:10:32 by bekinci-         ###   ########.fr       */
+/*   Updated: 2026/04/15 15:21:19 by bercem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ std::string	BitcoinExchange::trim(std::string s) const
 {
 	size_t start = 0;
 	size_t end = s.size();
-    
-	while (start < s.size() && std::isspace(s[start]))
-        start++;
+	
+	while (start < end && std::isspace(s[start]))
+		start++;
 
-    while (end > start && std::isspace(s[end - 1]))
-        end--;
+	while (end > start && std::isspace(s[end - 1]))
+		end--;
 
-    return s.substr(start, end - start);
+	return s.substr(start, end - start);
 }
 
 bool	BitcoinExchange::isValidDate(const std::string& date) const
@@ -80,16 +80,14 @@ bool	BitcoinExchange::isValidValue(const double value) const
 	return (true);
 }
 
-bool	BitcoinExchange::parseValidate(const std::string& line, char delimiter, std::string& date, double& rateValue)
+bool	BitcoinExchange::parseValidate(const std::string& line, char delimiter, std::string& date, double& value)
 {
 	size_t		pos;
-	std::string	strRV;
+	std::string	strVal;
+	char *end;
 
 	if (line.empty())
-	{
-		std::cerr << "Error: line is empty.\n";
 		return (false);
-	}
 	pos = line.find(delimiter);
 	if (pos == std::string::npos)
 	{
@@ -99,26 +97,21 @@ bool	BitcoinExchange::parseValidate(const std::string& line, char delimiter, std
 	date = trim(line.substr(0, pos));
 	if (!isValidDate(date))
 	{
-		std::cerr << "Error: bad input => " << line << std::endl;
+		std::cerr << "Error: bad input => " << date << std::endl;
 		return (false);
 	}
-	strRV = trim(line.substr(pos + 1));
-	bool digit_flag = true;
-	for (size_t i = 0; i < strRV.size(); i++)
+	strVal = trim(line.substr(pos + 1));
+	if (strVal.empty()) 
 	{
-		if (!isdigit(strRV[i]) && strRV[i] != '.'
-			&& strRV[i] != '-' && strRV[i] != '+')
-		{
-			digit_flag = false;
-			break ;
-		}
-	}
-	if (strRV.empty() || !digit_flag)
+        std::cerr << "Error: bad input => " << line << std::endl;
+        return false;
+    }
+    value = std::strtod(strVal.c_str(), &end);
+	if (*end != '\0') 
 	{
-		std::cerr << "Error: bad input => " << line << std::endl;
-		return (false);
-	}
-	rateValue = std::atof(strRV.c_str());
+        std::cerr << "Error: bad input => " << line << std::endl;
+        return false;
+    }
 	return (true);
 }
 
@@ -141,8 +134,14 @@ void	BitcoinExchange::loadDatabase(const std::string& filename)
 	
 	if (!dB.is_open())
 		throw std::runtime_error( "Error: File cannot open!");
-	if (!getline(dB, line))
+	if (dB.peek() == std::ifstream::traits_type::eof()) {
 		throw std::runtime_error("Error: Empty database");
+	}
+	if (std::getline(dB, line)) {
+		line = trim(line);
+        if (line != "date,exchange_rate")
+            throw std::runtime_error("Error: Database header mismatch.");
+    }
 	while (getline(dB, line))
 	{
 		if (!parseValidate(line, ',', date, ex_rate))
@@ -163,20 +162,26 @@ void	BitcoinExchange::processInput(const std::string& filename)
 	if (!input.is_open())
 		throw std::runtime_error( "Error: File cannot open!");
 
-	if (!std::getline(input, line))
-		throw std::runtime_error("Error: Empty input file");
+	if (input.peek() == std::ifstream::traits_type::eof()) {
+		throw std::runtime_error("Error: Empty database");
+	}
+	if (std::getline(input, line)) {
+		line = trim(line);
+		if (line != "date | value")
+			throw std::runtime_error("Error: Input header mismatch.");
+	}
 	while (std::getline(input, line))
 	{
 		if (!parseValidate(line, '|', date, value))
 			continue ;
-        if (!isValidValue(value))
-            continue;
-        rate = findExchangeRate(date);
-        if (rate < 0) {
-            std::cerr << "Error: No exchange rate for this date => " << date << std::endl;
-            continue;
-        }
-        std::cout << date << " => " << value << " = " << (rate * value) << std::endl;
+		if (!isValidValue(value))
+			continue;
+		rate = findExchangeRate(date);
+		if (rate < 0) {
+			std::cerr << "Error: No exchange rate for this date => " << date << std::endl;
+			continue;
+		}
+		std::cout << date << " => " << value << " = " << (rate * value) << std::endl;
 	}
 	input.close();
 }
