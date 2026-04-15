@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bekinci- <bekinci-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bercem <bercem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 12:11:28 by bekinci-          #+#    #+#             */
-/*   Updated: 2026/04/02 12:11:32 by bekinci-         ###   ########.fr       */
+/*   Updated: 2026/04/15 17:28:03 by bercem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& other)
 	return (*this);
 }
 
-std::vector<int> PmergeMe::Jacobsthal(int limit)
+static std::vector<int> Jacobsthal(int limit)
 {
 	int next;
 	std::vector<int> j;
@@ -38,6 +38,46 @@ std::vector<int> PmergeMe::Jacobsthal(int limit)
 	return j;
 }
 
+template <typename C, typename PairC>
+static void sortSmallNum(C &mainChain, PairC &pairs, int straggler)
+{
+	std::vector<int> 		jacob = Jacobsthal(pairs.size());
+	typename C::iterator	it;
+	typename C::iterator	limit_it;
+	int						lastJacob = 1;
+
+	for (size_t i = 0; jacob.size() && i < jacob.size(); i++)
+	{
+		int	currJacob = jacob[i];
+		for (int index = currJacob - 1; lastJacob <= index; index--)
+		{
+			if (index < (int)pairs.size() && pairs[index].second != -1)
+			{
+				limit_it = lower_bound(mainChain.begin(), mainChain.end(), pairs[index].first);
+				it = lower_bound(mainChain.begin(), limit_it, pairs[index].second);
+				mainChain.insert(it, pairs[index].second);
+				pairs[index].second = -1;
+			}
+		}
+		lastJacob = currJacob;	
+	}
+	for (size_t i = 0; i < pairs.size(); i++)
+	{
+		if (pairs[i].second != -1)
+		{
+			limit_it = lower_bound(mainChain.begin(), mainChain.end(), pairs[i].first);
+			it = lower_bound(mainChain.begin(), limit_it, pairs[i].second);
+			mainChain.insert(it, pairs[i].second);
+			pairs[i].second = -1;
+		}
+	}
+	if (straggler != -1)
+	{
+		it = lower_bound(mainChain.begin(), mainChain.end(), straggler);
+		mainChain.insert(it, straggler);
+	}
+}
+	
 void	PmergeMe::sortVector(std::vector<int>& vec) 
 {
 	if (vec.size() == 1)
@@ -145,9 +185,7 @@ void	PmergeMe::displayResults()
 
 	std::cout << "Before: ";
 	for (size_t i = 0; i < vector.size(); i++)
-	{
 		std::cout << vector[i] << " ";
-	}
 	std::cout << std::endl;
 	start = clock();
 	sortVector(vector);
